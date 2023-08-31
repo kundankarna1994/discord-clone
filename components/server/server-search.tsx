@@ -40,7 +40,7 @@ export const ServerSearch = ({ data }: ServerSearchProps) => {
         };
         document.addEventListener("keydown", down);
         return () => document.removeEventListener("keydown", down);
-    }, []);
+    }, [open]);
 
     const onClick = ({
         id,
@@ -52,11 +52,11 @@ export const ServerSearch = ({ data }: ServerSearchProps) => {
         setOpen(false);
         if (type === "member") {
             return router.push(
-                `/servers/${params.serverId}/conversations/${id}`
+                `/servers/${params?.serverId}/conversations/${id}`
             );
         }
         if (type === "channel") {
-            return router.push(`/servers/${params.serverId}/channels/${id}`);
+            return router.push(`/servers/${params?.serverId}/channels/${id}`);
         }
     };
 
